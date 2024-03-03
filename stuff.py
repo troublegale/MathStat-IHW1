@@ -27,12 +27,8 @@ def interval(a):
     return str(a[0]) + ' - ' + str(a[len(a) - 1]) if len(a) > 1 else str(a[0]) + '\t\t'
 
 
-def avg(a):
-    return (a[0] + a[len(a) - 1]) / 2 if len(a) > 1 else a[0]
-
-
-def avgs(m):
-    return [avg(a) for a in m]
+def avgs(first, l, k):
+    return [(2 * first + l * (2 * i + 1)) / 2 for i in range(k)]
 
 
 def frequency(a, k):
@@ -47,10 +43,11 @@ def heights(p, l):
     return [i / l for i in p]
 
 
-def print_info(m, x, p, h):
-    print("x_l - x_r\t", "x*\t", "m*", "p*\t", "h", sep="\t\t")
+def print_info(m, x, p, h, l):
+    print("x_l\t", "x_r\t", "x*\t", "m*", "p*\t", "h", sep="\t\t")
     for i in range(len(m)):
-        print(interval(m[i]), format(x[i], '.3f'), len(m[i]), format(p[i], '.2f'), format(h[i], '.3f'), sep="\t\t")
+        print(format(m[0][0] + l * i, '.3f'), format(m[0][0] + l * (i + 1), '.3f'),
+              format(x[i], '.3f'), len(m[i]), format(p[i], '.2f'), format(h[i], '.3f'), sep="\t\t")
 
 
 def math_exp(x, p):

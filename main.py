@@ -14,10 +14,11 @@ print("Длина интервала -", format(interval_length, '.3f'))
 print()
 
 by_intervals = separate_into_intervals(a, interval_count, interval_length)
-x = avgs(by_intervals)
+print(a[0])
+x = avgs(a[0], interval_length, interval_count)
 p = frequencies(by_intervals, len(a))
 h = heights(p, interval_length)
-print_info(by_intervals, x, p, h)
+print_info(by_intervals, x, p, h, interval_length)
 print()
 
 math_exp = math_exp(x, p)
